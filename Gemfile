@@ -21,7 +21,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'slim-rails'
-gem 'slim-rails'
 gem 'dotenv-rails'
 
 group :development, :test do
