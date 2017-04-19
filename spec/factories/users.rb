@@ -12,7 +12,7 @@ FactoryGirl.define do
 
       after(:build) do |user, evaluator|
         1.upto(evaluator.number_of_drafts) do
-          user.drafts << FactoryGirl.build_stubbed(:draft, user: :user)
+          user.drafts << FactoryGirl.build_stubbed(:draft, user: user)
         end
       end
     end
