@@ -23,6 +23,7 @@ gem 'devise'
 gem 'slim-rails'
 gem 'dotenv-rails'
 gem 'will_paginate', '~> 3.1.0'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

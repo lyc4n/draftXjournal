@@ -4,5 +4,7 @@ h1 Your Drafts
   .draft-preview-item
     .draft-preview-item__title= draft.title
     .draft-preview-item__content
-      = truncate(draft.content, length: 80)
+      = truncate(markdown_to_plain.render(draft.content), length: 80).html_safe
+
+= link_to 'Write a draft', '#'
 
