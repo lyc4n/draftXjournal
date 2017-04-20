@@ -1,0 +1,8 @@
+h1 Your Drafts
+
+- @home.drafts.each do |draft|
+  .draft-preview-item
+    .draft-preview-item__title= draft.title
+    .draft-preview-item__content
+      = truncate(draft.content, length: 80)
+

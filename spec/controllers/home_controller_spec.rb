@@ -10,7 +10,7 @@ describe HomeController do
 
   context 'when user is logged in' do
     before do
-      stub_login_user
+      sign_in create(:user)
       get :show
     end
 

@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Users flow' do
 
   context 'when logged in' do
-    let(:user){build_stubbed(:user, :with_stubbed_drafts, number_of_drafts: 2)}
-    let!(:another_user){build_stubbed(:user, :with_stubbed_drafts, number_of_drafts: 1)}
+    let(:user){create(:user, :with_drafts, number_of_drafts: 2)}
+    let!(:another_user){create(:user, :with_drafts, number_of_drafts: 1)}
 
     before do
       allow(user).to receive(:save)
