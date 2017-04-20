@@ -1,10 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe 'Users flow' do
-
+feature 'Viewing Home Page' do
   context 'when logged in' do
     let(:user){create(:user, :with_drafts, number_of_drafts: 2)}
-    let!(:another_user){create(:user, :with_drafts, number_of_drafts: 1)}
 
     before do
       allow(user).to receive(:save)
@@ -19,6 +17,10 @@ RSpec.describe 'Users flow' do
 
     it 'displays preview of the login user\'s draft' do
       expect(page).to have_selector('.draft-preview-item', count: 2)
+    end
+
+    it 'adds has a link to the NEW DRAFT form' do
+      expect(page).to have_content('Write a draft')
     end
   end
 
