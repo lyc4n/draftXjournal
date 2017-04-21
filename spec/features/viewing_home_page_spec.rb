@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Viewing Home Page' do
+feature 'Viewing Home Page', js: true do
   context 'when logged in' do
     let(:user){create(:user, :with_drafts, number_of_drafts: 2)}
 
