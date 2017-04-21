@@ -10,7 +10,7 @@ feature 'Logging in' do
     click_button('Log in')
 
     expect(page).to have_current_path('/')
-    expect(page).to have_content 'Your Drafts'
+    expect(page).to have_content('Your Drafts')
   end
 
   scenario 'when unsuccessful' do
