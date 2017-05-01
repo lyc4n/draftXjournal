@@ -12,4 +12,20 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require simplemde.min
 //= require_tree .
+//
+
+
+document.addEventListener('turbolinks:load', function() {
+  editorValueContainer = document.getElementById('markdown-editor');
+  if(editorValueContainer){
+    simplemde = new SimpleMDE({
+      element: document.getElementById('markdown-editor'),
+      spellChecker: false,
+      codeSyntaxHighlighting: false,
+      autoDownloadFontAwesome: false,
+      forceSync: true
+    });
+  }
+})
