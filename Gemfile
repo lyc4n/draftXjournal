@@ -24,7 +24,8 @@ gem 'slim-rails'
 gem 'dotenv-rails'
 gem 'will_paginate', '~> 3.1.0'
 gem 'redcarpet'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 4.7.0'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

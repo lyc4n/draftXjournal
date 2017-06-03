@@ -24,7 +24,6 @@ document.addEventListener('turbolinks:load', function() {
       element: document.getElementById('markdown-editor'),
       spellChecker: false,
       codeSyntaxHighlighting: false,
-      autoDownloadFontAwesome: false,
       forceSync: true
     });
   }
