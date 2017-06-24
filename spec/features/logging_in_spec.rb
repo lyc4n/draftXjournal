@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Logging in' do
+feature 'Logging in', :js do
   scenario 'when successful' do
     user = create(:user)
     visit '/'

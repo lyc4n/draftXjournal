@@ -16,11 +16,11 @@ feature 'Viewing Home Page', js: true do
     end
 
     it 'displays preview of the login user\'s draft' do
-      expect(page).to have_selector('.draft-preview-item', count: 2)
+      expect(page).to have_selector('.draft-list-item', count: 2)
     end
 
     it 'adds has a link to the NEW DRAFT form' do
-      expect(page).to have_content('Write a draft')
+      expect(page).to have_content('New draft')
     end
   end
 

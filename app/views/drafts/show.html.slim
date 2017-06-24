@@ -1,0 +1,7 @@
+.row
+  .draft-page
+    h1.draft-page__title= @draft.title
+
+    p.draft-page__content
+      = markdown_to_html(@draft.content)
+

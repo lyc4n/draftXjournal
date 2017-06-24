@@ -5,8 +5,7 @@ describe Home do
   let(:home){Home.new(user)}
 
   describe '#drafts' do
-    it 'has the correct count' do
-      expect(home.drafts.count).to eq(2)
+    it 'stores all the drafts of the user' do
       expect(home.drafts).to eq(user.drafts)
     end
   end

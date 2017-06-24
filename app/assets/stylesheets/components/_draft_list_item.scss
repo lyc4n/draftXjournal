@@ -1,0 +1,27 @@
+.draft-list-item{
+  padding: 10px;
+  border: 1px solid #eee;
+  margin-bottom: 10px;
+  width: 49%;
+  height: 140px;
+}
+
+.draft-list-item__title{
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 5px;
+}
+
+.draft-list-item__content-preview{
+  padding: 10px 0px 10px 0px;
+  height: 80px;
+}
+
+.draft-list-item__footer{
+}
+
+.draft-list-item__metadata{
+  text-align: right;
+  bottom: 0px;
+  right: 0px;
+}

@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def show
-    @home = Home.new(current_user, params)
+    @home = Home.new(current_user)
   end
 end

@@ -7,7 +7,7 @@ feature 'drafts', js: true do
     login_as user
 
     visit '/'
-    click_link('Write a draft')
+    click_link('New draft')
     expect(page).to have_current_path('/drafts/new')
 
     expect(page).to have_selector('.editor-toolbar')
@@ -19,8 +19,8 @@ feature 'drafts', js: true do
     click_button 'Save draft'
 
     expect(page).to have_current_path('/')
-    expect(page).to have_selector('.draft-preview-item', count: 1)
     expect(page).to have_selector('.flash--success')
+    expect(page).to have_selector('.draft-list-item', count: 1)
   end
 
 
@@ -29,7 +29,7 @@ feature 'drafts', js: true do
     login_as user
 
     visit '/'
-    click_link('Write a draft')
+    click_link('New draft')
     expect(page).to have_current_path('/drafts/new')
 
     expect(page).to have_selector('.editor-toolbar')

@@ -1,4 +1,5 @@
 class DraftsController < ApplicationController
+
   def new
     @draft = Draft.new
   end
@@ -11,6 +12,10 @@ class DraftsController < ApplicationController
       flash.now[:error] = @draft.errors.full_messages.join("\n")
       render :new
     end
+  end
+
+  def show
+    @draft = Draft.find(params[:id])
   end
 
   private

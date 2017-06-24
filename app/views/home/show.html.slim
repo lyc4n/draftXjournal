@@ -1,9 +1,2 @@
-h1 Your Drafts
-
-- @home.drafts.each do |draft|
-  .draft-preview-item
-    .draft-preview-item__title= draft.title
-    .draft-preview-item__content
-      = truncate(markdown_to_plain.render(draft.content), length: 80).html_safe
-
-= link_to 'Write a draft', new_draft_path
+.row
+  #home-page.home-page data-drafts="#{@home.drafts.to_json(methods: :content_preview)}"
