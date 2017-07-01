@@ -25,7 +25,16 @@ document.addEventListener('turbolinks:load', function() {
       element: document.getElementById('markdown-editor'),
       spellChecker: false,
       codeSyntaxHighlighting: false,
-      forceSync: true
+      forceSync: true,
+      toolbar: [
+        'bold', 'italic', 'strikethrough',
+        '|',
+        'heading', 'heading-smaller', 'heading-bigger', 'heading-1', 'heading-2', 'heading-3',
+        '|',
+        'code', 'quote', 'unordered-list', 'ordered-list', 'clean-block',
+        '|',
+        'link', 'image', 'table', 'horizontal-rule', 'preview', 'guide'
+      ]
     });
   }
 })
