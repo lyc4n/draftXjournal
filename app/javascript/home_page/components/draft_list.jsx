@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import DraftListItem from './draft_list_item'
+import Toolbar from './toolbar'
 
 class DraftList extends Component{
 
@@ -10,13 +11,14 @@ class DraftList extends Component{
         <a className='btn btn-primary btn-xs pull-right' href='/drafts/new'>New draft</a>
       </h3>
       <hr />
+      <Toolbar filterDrafts={this.props.filterDrafts}/>
       <div className='clearfix'></div>
     </div>)
   }
 
   renderList(){
     let draftsView = this.props.drafts.map(function(draft){
-        return(<DraftListItem {...draft} key={draft.id}/>)
+      return(<DraftListItem {...draft} key={draft.id}/>)
     })
 
     return(<div className='draft-list'>{draftsView}</div>)

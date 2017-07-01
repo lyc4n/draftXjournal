@@ -7,7 +7,6 @@ class DraftListItem extends Component{
   }
   elapsedTime(){
     let elapsed = new Elapsed(new Date(this.props.created_at), new Date());
-    console.log(elapsed.optimal)
     return(elapsed.optimal)
   }
   render(){
