@@ -1,0 +1,11 @@
+h3 Edit Draft
+hr
+
+= form_for @draft, method: :put do |f|
+  = f.text_field :title, class: 'form-control', autofocus: true, required: true, placeholder: 'Draft title'
+  br
+  = f.text_area :content, id: 'markdown-editor'
+  .text-center
+    .btn-group
+      = f.submit 'Update draft', class: 'btn btn-primary'
+      = link_to 'Back to home', '/', class: 'btn btn-default'

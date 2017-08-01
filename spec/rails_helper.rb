@@ -65,6 +65,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include FactoryGirl::Syntax::Methods
   config.include Warden::Test::Helpers, type: :feature
+  config.include FeaturesHelper, type: :feature
   DatabaseCleaner.strategy = :truncation
   DatabaseCleaner.clean_with(:truncation)
 end
