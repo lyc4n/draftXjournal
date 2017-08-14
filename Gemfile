@@ -28,7 +28,8 @@ gem 'font-awesome-sass', '~> 4.7.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootswatch-rails'
 gem 'jquery-rails'
-
+gem 'koala'
+gem 'omniauth-facebook'
 
 
 group :development, :test do
@@ -45,6 +46,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'capybara-screenshot'
+  gem 'shoulda-matchers'#, git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
 end
 
 group :development do

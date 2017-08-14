@@ -1,0 +1,13 @@
+.row
+  .container
+    .col-sm-12
+      h1 Facebook Poster
+    .col-sm-12
+      = form_for @fb_post, class: 'form' do |f|
+        .form-group
+          = f.text_area :content, class: 'form-control'
+        .form-group
+          = f.datetime_field :post_date, class: 'form-control'
+          small= 'Leave blank if you want to post immediately'
+        = f.submit 'Save post', class: 'btn btn-primary'
+

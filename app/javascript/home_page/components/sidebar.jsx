@@ -11,6 +11,9 @@ class Sidebar extends Component{
         <li className='list-group-item'>
           Journal - TODO
         </li>
+        <li className='list-group-item'>
+          <a href="/fb_posts">Facebook Updater</a>
+        </li>
         {/* <li className='list-group-item'> */}
         {/*   <span className='badge'>1</span> */}
         {/*   Quotes */}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412070656) do
+ActiveRecord::Schema.define(version: 20170802124211) do
 
   create_table "drafts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -20,6 +20,25 @@ ActiveRecord::Schema.define(version: 20170412070656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_drafts_on_user_id"
+  end
+
+  create_table "fb_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "content"
+    t.datetime "post_date"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_auths", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.string "token", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_user_auths_on_provider_and_uid", unique: true
+    t.index ["user_id"], name: "index_user_auths_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -42,4 +61,5 @@ ActiveRecord::Schema.define(version: 20170412070656) do
   end
 
   add_foreign_key "drafts", "users"
+  add_foreign_key "user_auths", "users"
 end
