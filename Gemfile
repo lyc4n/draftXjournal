@@ -45,6 +45,7 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'capybara-screenshot'
+  gem 'shoulda-matchers'
 end
 
 group :development do
