@@ -6,6 +6,8 @@ class Draft < ApplicationRecord
 
   scope :latest_first, ->{order(created_at: :desc)}
 
+  acts_as_taggable
+
   def content_preview
     renderer = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
     renderer.render(content).html_safe.truncate(50)

@@ -22,4 +22,9 @@ RSpec.describe Draft, type: :model do
       expect(draft.content_preview).to eq "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa..."
     end
   end
+
+  describe 'Taggable' do
+    it {is_expected.to(respond_to(:tags))}
+    it {is_expected.to(respond_to(:tag_list))}
+  end
 end
