@@ -5,6 +5,8 @@ hr
   = f.text_field :title, class: 'form-control', autofocus: true, required: true, placeholder: 'Draft title'
   br
   = f.text_area :content, id: 'markdown-editor'
+  br
+  = f.text_field :tag_list, class: 'form-control', placeholder: 'Tags separated by comma'
   .text-center
     .btn-group
       = f.submit 'Save draft', class: 'btn btn-primary'
