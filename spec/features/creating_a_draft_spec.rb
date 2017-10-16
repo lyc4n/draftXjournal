@@ -14,6 +14,7 @@ feature 'drafts', js: true do
     expect(page).to have_selector('.CodeMirror')
 
     fill_in('draft_title', with: 'Draft#1')
+    fill_in('draft_tag_list', with: 'ruby_tag, javascript_tag')
     fill_in_editor_field('**Hello World**')
     expect(page).to have_editor_display text: 'Hello World'
     click_button 'Save draft'
@@ -21,6 +22,8 @@ feature 'drafts', js: true do
     expect(page).to have_current_path('/')
     expect(page).to have_selector('.flash--success')
     expect(page).to have_selector('.draft-list-item', count: 1)
+    expect(page).to have_content('ruby_tag')
+    expect(page).to have_content('javascript_tag')
   end
 
 

@@ -43,6 +43,6 @@ class DraftsController < ApplicationController
   end
 
   def draft_params
-    params.require(:draft).permit(:title, :content)
+    params.require(:draft).permit(:title, :content, :tag_list)
   end
 end

@@ -9,8 +9,18 @@ class DraftListItem extends Component{
     let elapsed = new Elapsed(new Date(this.props.created_at), new Date());
     return(elapsed.optimal)
   }
+  renderTagList(){
+    let tagListItems = this.props.tag_list.map((tag, index) =>{
+      return(<li key={index} className='tag-list__item'>{tag}</li>)
+    })
+
+    if(tagListItems.length){
+      return(<ul className='tag-list'>{tagListItems}</ul>)
+    }else{
+      return(<small className='pull-left'>No tag</small>)
+    }
+  }
   render(){
-    let elapsed = new Date()
     return(
       <div className='draft-list-item panel'>
         <div className='draft-list-item__title'>
@@ -20,6 +30,7 @@ class DraftListItem extends Component{
           {this.props.content_preview}
         </div>
         <div className='draft-list-item__footer text-right'>
+          {this.renderTagList()}
           <small className='draft-list-item__metadata'>
             {this.elapsedTime()}
           </small>

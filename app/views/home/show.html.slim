@@ -1,2 +1,2 @@
 .row
-  #home-page.home-page data-drafts="#{@home.drafts.to_json(methods: :content_preview)}"
+  #home-page.home-page data-drafts="#{@home.drafts.to_json(methods: [:content_preview, :tag_list])}"

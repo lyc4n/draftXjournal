@@ -2,9 +2,8 @@ h3 Edit Draft
 hr
 
 = form_for @draft, method: :put do |f|
-  = f.text_field :title, class: 'form-control', autofocus: true, required: true, placeholder: 'Draft title'
+  = render 'form_fields', {f: f}
   br
-  = f.text_area :content, id: 'markdown-editor'
   .text-center
     .btn-group
       = f.submit 'Update draft', class: 'btn btn-primary'
