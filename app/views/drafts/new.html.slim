@@ -2,11 +2,7 @@ h3 New Draft
 hr
 
 = form_for @draft do |f|
-  = f.text_field :title, class: 'form-control', autofocus: true, required: true, placeholder: 'Draft title'
-  br
-  = f.text_area :content, id: 'markdown-editor'
-  br
-  = f.text_field :tag_list, class: 'form-control', placeholder: 'Tags separated by comma', value: f.object.tag_list.to_s
+  = render "form_fields", {f: f}
   br
   .text-center
     .btn-group
