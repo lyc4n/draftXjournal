@@ -16,6 +16,7 @@ feature 'Managing existing draft', :js do
     click_on('Edit')
     expect(page.current_path).to eq(edit_draft_path(draft))
     fill_in('draft_title', with: 'TUGS for long term')
+    fill_in('draft_tag_list', with: 'design_tag, art_tag')
 
     fill_in_editor_field(new_content)
     expect(page).to have_editor_display(text: new_content)
@@ -23,6 +24,8 @@ feature 'Managing existing draft', :js do
 
     expect(page.current_path).to eq(draft_path(draft))
     expect(page).to have_content(new_content.gsub('*', ''))
+    expect(page).to have_content('design_tag')
+    expect(page).to have_content('art_tag')
     expect(page).to have_content('have been updated')
   end
 

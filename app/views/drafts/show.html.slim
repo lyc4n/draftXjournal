@@ -5,8 +5,15 @@
     .draft-page__content
       = markdown_to_html(@draft.content)
       .clearfix
-
-    .draft-page__footer.text-center
-      .btn-group
-        = link_to 'Edit', edit_draft_path(@draft), class: 'btn btn-info'
-        = link_to 'Delete', draft_path(@draft), method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this draft?'}
+      br
+      br
+      span.small Tags:
+      br
+      ul.tag-list.small
+       - @draft.tag_list.each do |tag|
+         li.tag-list__item= tag
+    .draft-page__footer
+      .text-center
+        .btn-group
+          = link_to 'Edit', edit_draft_path(@draft), class: 'btn btn-info'
+          = link_to 'Delete', draft_path(@draft), method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this draft?'}
