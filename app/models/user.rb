@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   has_many :drafts
+  has_many :journals
 end
