@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20171017143100) do
     t.index ["user_id"], name: "index_drafts_on_user_id"
   end
 
+  create_table "journal_months", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "journal_id"
+    t.integer "month"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["journal_id"], name: "index_journal_months_on_journal_id"
+  end
+
   create_table "journals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.integer "year", null: false
@@ -76,5 +84,6 @@ ActiveRecord::Schema.define(version: 20171017143100) do
   end
 
   add_foreign_key "drafts", "users"
+  add_foreign_key "journal_months", "journals"
   add_foreign_key "journals", "users"
 end
