@@ -1,10 +1,21 @@
 class Journal < ApplicationRecord
 
-  enum status: [:inactive, :active]
+  enum status: {inactive: 0, active: 1}
 
   belongs_to :user
+  has_many   :months
 
-  validates :user_id, presence: true
+  validates :user, presence: true
   validates :year, presence: true
-  validates :status, presence: true, inclusion: {in: statuses.values}
+  validates :status, presence: true, inclusion: {in: statuses.values + statuses.keys}
+
+  after_create :generate_months
+
+
+  private
+
+  def generate_months
+    months = (1..12).inject([]){|all, month| all << {month: month, journal: self} }
+    Journal::Month.create!(months)
+  end
 end
