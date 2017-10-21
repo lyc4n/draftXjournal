@@ -4,6 +4,8 @@ describe Journal do
 
   let(:user){create(:user)}
 
+  it {is_expected.to define_enum_for(:status).with([:inactive, :active])}
+
   describe 'Associations' do
     it {is_expected.to belong_to :user}
   end
