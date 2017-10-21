@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019135644) do
+ActiveRecord::Schema.define(version: 20171021135408) do
 
   create_table "drafts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20171019135644) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_drafts_on_user_id"
+  end
+
+  create_table "journal_month_entries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "journal_month_id"
+    t.integer "type", null: false
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["journal_month_id"], name: "index_journal_month_entries_on_journal_month_id"
   end
 
   create_table "journal_months", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -84,6 +93,7 @@ ActiveRecord::Schema.define(version: 20171019135644) do
   end
 
   add_foreign_key "drafts", "users"
+  add_foreign_key "journal_month_entries", "journal_months"
   add_foreign_key "journal_months", "journals"
   add_foreign_key "journals", "users"
 end
