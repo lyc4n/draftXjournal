@@ -6,7 +6,7 @@ class Journal < ApplicationRecord
   has_many   :months
 
   validates :user, presence: true
-  validates :year, presence: true
+  validates :year, presence: true, uniqueness: {scope: :user_id}
   validates :status, presence: true, inclusion: {in: statuses.values + statuses.keys}
 
   after_create :generate_months

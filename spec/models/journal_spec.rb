@@ -9,9 +9,11 @@ describe Journal do
   end
 
   describe 'Validations' do
+    subject {build(:journal, user: user, year: 2017)}
     it {is_expected.to validate_presence_of(:year)}
     it {is_expected.to validate_presence_of(:user)}
     it {is_expected.to validate_presence_of(:status)}
+    it {is_expected.to validate_uniqueness_of(:year).scoped_to(:user_id)}
   end
 
   describe 'Callbacks' do
