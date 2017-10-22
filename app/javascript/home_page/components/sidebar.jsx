@@ -9,7 +9,7 @@ class Sidebar extends Component{
           <a href='/'>Drafts</a>
         </li>
         <li className='list-group-item'>
-          Journal - TODO
+          My Journal
         </li>
         {/* <li className='list-group-item'> */}
         {/*   <span className='badge'>1</span> */}

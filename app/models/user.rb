@@ -10,4 +10,13 @@ class User < ApplicationRecord
 
   has_many :drafts
   has_many :journals
+  has_one  :current_year_journal, -> {where(year: DateTime.now.year)}, class_name: 'Journal'
+
+  after_create :generate_current_year_journal
+
+  private
+
+  def generate_current_year_journal
+    create_current_year_journal
+  end
 end

@@ -47,6 +47,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara-screenshot'
   gem 'shoulda-matchers'
+  gem 'timecop', '~> 0.8.1'
 end
 
 group :development do
