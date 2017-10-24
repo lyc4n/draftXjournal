@@ -21,6 +21,7 @@ describe Journal do
   describe 'Callbacks' do
     describe 'after_create' do
       it 'creates twelve Journal::Month' do
+        allow_any_instance_of(User).to receive(:generate_current_year_journal)
         journal = create(:journal, :active, user: user)
         journal_months = journal.months.order(month: :asc)
 
