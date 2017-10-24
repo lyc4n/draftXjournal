@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import Sidebar  from './sidebar'
+import Sidebar  from 'shared/sidebar'
 import DraftList  from './draft_list'
 import Fuse from 'fuse.js'
 
