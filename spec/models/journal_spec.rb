@@ -8,6 +8,8 @@ describe Journal do
 
   describe 'Associations' do
     it {is_expected.to belong_to :user}
+    it {is_expected.to have_many(:months).dependent(:destroy)}
+    it {is_expected.to have_many(:entries).dependent(:destroy)}
   end
 
   describe 'Validations' do

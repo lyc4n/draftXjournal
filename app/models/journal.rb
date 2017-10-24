@@ -3,7 +3,8 @@ class Journal < ApplicationRecord
   enum status: {inactive: 0, active: 1}
 
   belongs_to :user
-  has_many   :months
+  has_many   :months,  dependent: :destroy
+  has_many   :entries, dependent: :destroy
 
   validates :user, presence: true
   validates :year, presence: true, uniqueness: {scope: :user_id}
