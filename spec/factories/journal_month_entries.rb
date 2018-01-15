@@ -22,23 +22,23 @@ note_titles = [
 
 FactoryGirl.define do
   factory :journal_month_entry, class: 'Journal::MonthEntry' do
-    month nil
-    type  'task'
-    title 'Build house for Digong the dog'
+    month      nil
+    entry_type 'task'
+    title      'Build house for Digong the dog'
 
     trait :task do
-      type 'task'
-      title {task_titles.sample}
+      entry_type 'task'
+      title      {task_titles.sample}
     end
 
     trait :event do
-      type 'event'
-      title {event_titles.sample}
+      entry_type 'event'
+      title      {event_titles.sample}
     end
 
     trait :note do
-      type 'note'
-      title {note_titles.sample}
+      entry_type 'note'
+      title      {note_titles.sample}
     end
   end
 end

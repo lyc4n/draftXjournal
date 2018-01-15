@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20171021144733) do
 
   create_table "journal_entries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "journal_id"
-    t.integer "type", null: false
+    t.integer "entry_type", null: false
     t.integer "status", null: false
     t.date "target_date", null: false
     t.string "title", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20171021144733) do
 
   create_table "journal_month_entries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "journal_month_id"
-    t.integer "type", null: false
+    t.integer "entry_type", null: false
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

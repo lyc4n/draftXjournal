@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Journal::Month do
   describe 'Associations' do
     it {is_expected.to belong_to :journal}
+    it {is_expected.to have_many :month_entries}
   end
 
   describe 'Validations' do

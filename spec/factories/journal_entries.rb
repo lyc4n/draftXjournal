@@ -1,6 +1,6 @@
 task_titles = [
   'Build house for Digong the dog', 'Run 100 Km', 'Swim 0.5 Km', 'Do 50 pushups',
-  'Study Nihongo for an hour', 'Read Chapter 5 of Tom Sawyer'
+  'Study Nihongo for an hour', 'Read Chapter 5 of Tom Sawyer',
   'Sell unsued phone on OLX', 'Look for cheap place to stay in Baguio',
   'Invite Gloria to lunch', 'Invite Jade to lunch', 'Invite Joe to lunch',
   'Gather christmas song lyrics', 'Buy paint for the roof'
@@ -24,24 +24,24 @@ note_titles = [
 FactoryGirl.define do
   factory :journal_entry, class: 'Journal::Entry' do
     journal nil
-    type 1
+    entry_type 'task'
     status 1
     target_date "2017-10-21"
     title "MyString"
 
     trait :task do
-      type 'task'
-      title {task_titles.sample}
+      entry_type  'task'
+      title       {task_titles.sample}
     end
 
     trait :event do
-      type 'event'
-      title {event_titles.sample}
+      entry_type 'event'
+      title      {event_titles.sample}
     end
 
     trait :note do
-      type 'note'
-      title {note_titles.sample}
+      entry_type 'note'
+      title      {note_titles.sample}
     end
   end
 end
