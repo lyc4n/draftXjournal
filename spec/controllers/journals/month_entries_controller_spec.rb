@@ -4,12 +4,12 @@ RSpec.describe Journals::MonthEntriesController do
   let(:user){create(:user)}
   let(:journal){user.current_year_journal}
   let(:month_entries) do
-      Journal::MonthEntry.create([
-        attributes_for(:journal_month_entry, :note,  month: journal.months.find_by(month: 10)),
-        attributes_for(:journal_month_entry, :task,  month: journal.months.find_by(month: 10)),
-        attributes_for(:journal_month_entry, :event, month: journal.months.find_by(month: 11)),
-        attributes_for(:journal_month_entry, :task,  month: journal.months.find_by(month: 12))
-      ])
+    Journal::MonthEntry.create([
+      attributes_for(:journal_month_entry, :note,  month: journal.months.find_by(month: 10)),
+      attributes_for(:journal_month_entry, :task,  month: journal.months.find_by(month: 10)),
+      attributes_for(:journal_month_entry, :event, month: journal.months.find_by(month: 11)),
+      attributes_for(:journal_month_entry, :task,  month: journal.months.find_by(month: 12))
+    ])
   end
 
   describe 'GET show' do
