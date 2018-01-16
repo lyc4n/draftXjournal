@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   root to: 'home#show'
 
   resources :drafts
-  resource  :journal
+  resource  :journal do
+    scope module: :journals do
+      resources  :month_entries, only: :show, param: :month
+    end
+  end
 end
