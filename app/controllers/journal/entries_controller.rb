@@ -1,4 +1,4 @@
-class Journals::EntriesController < ApplicationController
+class Journal::EntriesController < ApplicationController
   def show
     @entries = journal.entries.on_day(selected_day)
     respond_to do |format|

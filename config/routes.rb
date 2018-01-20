@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :drafts
   resource  :journal do
-    scope module: :journals do
+    scope module: :journal do
       resources  :month_entries, only: :show, param: :month
       resources  :entries,       only: :show, param: :day
     end

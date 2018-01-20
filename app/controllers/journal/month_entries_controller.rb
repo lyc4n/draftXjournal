@@ -1,4 +1,4 @@
-class Journals::MonthEntriesController < ApplicationController
+class Journal::MonthEntriesController < ApplicationController
   def show
     @month_entries = journal.month_entries.on_month(params[:month])
 

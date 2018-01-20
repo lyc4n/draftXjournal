@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Journals::EntriesController do
+RSpec.describe Journal::EntriesController do
   let(:user){create(:user)}
   let(:mock_today){Time.local(2018, 01, 16, 12, 0, 0)}
   let(:journal){user.current_year_journal}

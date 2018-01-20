@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Journals::MonthEntriesController do
+RSpec.describe Journal::MonthEntriesController do
   let(:user){create(:user)}
   let(:journal){user.current_year_journal}
   let(:month_entries) do
