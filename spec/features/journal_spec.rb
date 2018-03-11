@@ -46,7 +46,7 @@ feature 'Journal', js: true do
   end
 
   def user_sees_journal_title
-    expect(page).to have_text("My Journal - 2017")
+    expect(page).to have_text('My Journal - 2017')
   end
 
   def user_sees_list_of_today_entries

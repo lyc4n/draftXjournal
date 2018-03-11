@@ -7,9 +7,13 @@ class Journal extends Component{
   constructor(props){
     super(props)
     this.state = {
-      initialEntries:      props.dayEntries   || [],
-      initialMonthEntries: props.monthEntries || []
+      contextDay:          new Date,
+      initialEntries:      this.props.initialEntries,
+      initialMonthEntries: this.props.initialMonthEntries
     }
+  }
+
+  componentDidMount(){
   }
 
   renderHeader(){
