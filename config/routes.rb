@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   resources :drafts
   resource  :journal do
-    scope module: :journal do
-      resources  :month_entries, only: :show, param: :month
-      resources  :entries,       only: :show, param: :day
-    end
+    get '/:month/:day', to: 'journals#show'
+
+    # scope module: :journal do
+    #   resources  :month_entries, only: :show, param: :month
+    #   resources  :entries,       only: :show, param: :day
+    # end
   end
 end

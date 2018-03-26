@@ -1,10 +1,4 @@
 .row
   #journal-page.journal-page{
-    data-day-entries='#{render template: "journals/entries",
-      formats: :json,
-      locals: {entries: @journal.day_entries}}',
-
-    data-month-entries='#{render template: "journals/entries",
-      formats: :json,
-      locals: {entries: @journal.month_entries}}'
+    data-journal-page='#{ApplicationController.new.render_to_string(template: "journals/show", formats: :json, layout: false, locals: {journal: @journal})}'
     }

@@ -15,14 +15,18 @@ class JournalPage extends Component{
 
 const JournalPageRoot = {
   initialize: function(){
-    let root         = document.getElementById('journal-page')
-    let dayEntries   = JSON.parse(root.dataset['dayEntries'])
-    let monthEntries = JSON.parse(root.dataset['monthEntries'])
+    let root            = document.getElementById('journal-page')
+    let journalPageData = JSON.parse(root.dataset['journalPage'])
+    let journal         = journalPageData.journal
+    let dayEntries      = journalPageData.dayEntries
+    let monthEntries    = journalPageData.monthEntries
+    let contextDate     = new Date(journalPageData.contextDate)
 
     if(root){
-      ReactDOM.render(<JournalPage initialEntries={dayEntries}
-                                   initialMonthEntries={monthEntries}
-                                   contextDate={new Date}/>, root)
+      ReactDOM.render(<JournalPage dayEntries={dayEntries}
+                                   monthEntries={monthEntries}
+                                   journal={journal}
+                                   contextDate={contextDate}/>, root)
     }
   }
 }

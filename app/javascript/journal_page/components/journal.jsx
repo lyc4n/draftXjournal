@@ -1,33 +1,91 @@
 import React, {Component} from 'react'
 import EntryItem from './entry_item'
 import {Tabs, Tab} from 'react-bootstrap'
+import moment from 'moment'
+
+import 'react-dates/initialize';
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController, DayPicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 class Journal extends Component{
 
   constructor(props){
     super(props)
     this.state = {
-      contextDay:          new Date,
-      initialEntries:      this.props.initialEntries,
-      initialMonthEntries: this.props.initialMonthEntries
+      contextDate:  moment(this.props.contextDate),
+      dayEntries:   this.props.dayEntries,
+      monthEntries: this.props.monthEntries,
+      datePickerOn: false
     }
   }
 
-  componentDidMount(){
+  toggleDatePickerDropdown(){
+    let datePickerOn = !this.state.datePickerOn
+    this.setState({datePickerOn})
   }
 
+  handleDayChange(selectedDay){
+    this.setState({contextDate: selectedDay, datePickerOn: false}, this.fetchEntries.bind(this))
+  }
+
+  fetchEntries(){
+    const {contextDate} = this.state
+    $.ajax({
+      url: `/journal/${contextDate.month() + 1}/${contextDate.date()}`,
+      format: 'json',
+      success: ((journalData) => {
+        const {dayEntries, monthEntries} = journalData
+        this.setState({dayEntries, monthEntries})
+        console.log('success', journalData)
+      }),
+      complete: (() => {
+        console.log('complete')
+      }),
+      error: (() => {
+        console.log('error')
+      })
+    })
+  }
+
+  dateDoesNotBelong(date){
+    return date.year() != this.state.contextDate.year()
+  }
+
+  renderDatePicker(){
+    if(this.state.datePickerOn)
+      return(
+        <div className='journal__datepicker-dropdown'>
+          <SingleDatePicker
+            numberOfMonths={1}
+            isOutsideRange={this.dateDoesNotBelong.bind(this)}
+            anchorDirection={'right'}
+            date={this.state.contextDate}
+            onDateChange={this.handleDayChange.bind(this)}
+            focused={true}
+            onFocusChange={({ focused }) => this.setState({ focused })}
+          />
+        </div>
+      )
+  }
   renderHeader(){
-    return(<div className='draft-list__header'>
+    return(<div className='journal__header'>
       <h3 className='header'>
-        My Journal - 2017
+        My Journal - {this.props.journal.year}
+        <span className='pull-right journal__datepicker-dropdown-toggler' onClick={this.toggleDatePickerDropdown.bind(this)}>
+           {this.state.contextDate.format('ddd, MMM D')}
+           &nbsp;
+           <i className='fa fa-angle-down'></i>
+        </span>
+        {this.renderDatePicker()}
       </h3>
       <hr />
+
       <div className='clearfix'></div>
     </div>)
   }
 
   renderEntryList(){
-    const items = $.map(this.state.initialEntries, (entry)=>{
+    const items = $.map(this.state.dayEntries, (entry)=>{
       return <EntryItem key={entry.id} {...entry} />
     })
 
@@ -40,7 +98,7 @@ class Journal extends Component{
   }
 
   renderMonthEntryList(){
-    const items = $.map(this.state.initialMonthEntries, (entry)=>{
+    const items = $.map(this.state.monthEntries, (entry)=>{
       return <EntryItem key={entry.id} {...entry} />
     })
 

@@ -1,0 +1,14 @@
+.journal__datepicker-dropdown{
+  float: right;
+  clear: both;
+  .SingleDatePickerInput{
+    display: none;
+  }
+  .SingleDatePicker_picker{
+    top: -2px !important;
+  }
+}
+
+.journal__datepicker-dropdown-toggler{
+  cursor: pointer
+}
